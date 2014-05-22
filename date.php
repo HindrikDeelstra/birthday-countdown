@@ -30,7 +30,6 @@ foreach($people as $name=>$date) {
     $list[$i]['name'] = $name;
     $list[$i]['next'] = $bday->getNextDate();
     $list[$i]['days'] = $bday->getDaysToGo();
-    $list[$i]['istoday'] = $bday->isToday();
     $list[$i]['age'] = $bday->getAge();
     $i++;
 }
@@ -45,10 +44,15 @@ function sortByDays($a, $b) {
 
 // Print the results
 foreach ($list as $birth) {
-    if($birth['istoday']){
-        print("Vandaag jarig: $birth[name] ($birth[age])".PHP_EOL);
-    } else {
-        print("Over $birth[days] dagen jarig: $birth[name] ($birth[age])".PHP_EOL);
+    switch($birth['days']) {
+        case 0:
+            print("Vandaag jarig: $birth[name] ($birth[age])".PHP_EOL);
+            break;
+        case 1:
+            print("Morgen jarig: $birth[name] ($birth[age])".PHP_EOL);
+            break;
+        default:
+            print("Over $birth[days] dagen jarig: $birth[name] ($birth[age])".PHP_EOL);
     }
 }
 
