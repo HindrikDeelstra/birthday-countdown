@@ -9,8 +9,8 @@ class Birthday {
     private $daystogo;
 
     public function __construct($date) {
-        $test_date = strtotime(date('Y').'-'.date('m-d', strtotime($date)));
-        $this->nextdate = ($test_date >= strtotime(date('Y-m-d')) ? date('Y-m-d', $test_date) : date('Y-m-d', strtotime("+1 year", $test_date)));
+        $test_date = date('Y').'-'.date('m-d', strtotime($date));
+        $this->nextdate = ($test_date >= date('Y-m-d') ? $test_date : date('Y-m-d', strtotime($test_date." +1 year")));
         $this->age = date('Y', strtotime($this->nextdate)) - date('Y', strtotime($date));
         $this->daystogo = abs(ceil((strtotime($this->nextdate) - time())/(60*60*24)));
     }
