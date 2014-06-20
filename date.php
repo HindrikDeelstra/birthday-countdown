@@ -4,7 +4,7 @@
 require_once('class.birthday.php');
 ini_set('date.timezone', 'Europe/Amsterdam');
 
-include('../../medewerkers.php');
+include(__DIR__.'/'.'../../medewerkers.php');
 
 /* The file 'medewerkers.php' contains an array '$people' in the form:
 ** $people = array(
@@ -15,45 +15,37 @@ include('../../medewerkers.php');
 ** This info might also be taken from a Database ofcourse...
 */
 
-// Only consider birthdays coming up in a limited amount of time
-$daystolook = 31;
-
-// Create an array to be filled with data, this will be sorted later
+// Initialize array, data filled in as array[$DaysToGo] = (List of all names and ages)
 $list = array();
 
-// Initialize array id and collect data
-$i = 0;
 foreach($people as $name=>$date) {
     $bday = new Birthday($date);
-    // Skip entries that are more than $daystolook number of days in the future
-    if($bday->getDaysToGo() > $daystolook) continue;
-    $list[$i]['name'] = $name;
-    $list[$i]['next'] = $bday->getNextDate();
-    $list[$i]['days'] = $bday->getDaysToGo();
-    $list[$i]['age'] = $bday->getAge();
-    $i++;
+    @$list[$bday->getDaysToGo()] .= $name.'('.$bday->getAge().') ';
 }
 
-// Sort the array by number of days to next birthday
-usort($list, 'sortByDays');
+ksort($list);
 
-// Define function to sort array by number of days left
-function sortByDays($a, $b) {
-    return $a['days'] - $b['days'];
+$showlater = true;
+$slingers = false;
+
+if(key($list) == '0') {
+    print("Vandaag jarig: ");
+    print(current($list));
+    next($list);
+    $showlater = false;
+    $slingers = true;
+}
+if(key($list) == '1') {
+    print("Morgen jarig: ");
+    print(current($list));
+    next($list);
+    $showlater = false;
 }
 
-// Print the results
-foreach ($list as $birth) {
-    switch($birth['days']) {
-        case 0:
-            print("Vandaag jarig: $birth[name] ($birth[age])".PHP_EOL);
-            break;
-        case 1:
-            print("Morgen jarig: $birth[name] ($birth[age])".PHP_EOL);
-            break;
-        default:
-            print("Over $birth[days] dagen jarig: $birth[name] ($birth[age])".PHP_EOL);
-    }
+if($showlater) {
+    print( (current($list) ? 'Over '.key($list).' dagen jarig: '.current($list) : '' ) );
 }
+
+print PHP_EOL;
 
 ?>
