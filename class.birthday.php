@@ -2,7 +2,7 @@
 
 /*
 ** Simple PHP class to obtain next occurrence, age and days to go from a given birthdate.
-** All dates and differences are DateTime objects ad DateTimeInterfaces.
+** All dates and differences are DateTime objects and DateTimeInterfaces.
 */
 
 class Birthday {
