@@ -1,12 +1,11 @@
 <?php
 
-@require_once('class.birthday.php');
+// We're working with DateTimes, so we'll set the correct timezone first
 ini_set('date.timezone', 'Europe/Amsterdam');
 
-// Initialize $people just in case the file include fails
-$people = array();
-@include('medewerkers.php');
-@include(__DIR__.'/../../medewerkers.php');
+// Include the class and data sources
+require_once('class.birthday.php');
+include_once('medewerkers.php');
 
 // Initialize array, data filled in as array[$DaysToGo] = (List of all names and ages)
 $list = array();
@@ -20,7 +19,7 @@ foreach($people as $name=>$date) {
 // Sort the array by key = number of DaysToGo
 ksort($list);
 
-// Initialize a few other settings
+// Initialize misc variables
 $showlater = true;
 
 // When birthdays are today or tomorrow, skip listing any later birthdays
@@ -55,7 +54,7 @@ if(isset($_GET['list'])) {
         print('<td>'.$date.'</td>');
         print('<td>'.$bday->getNextDate().'</td>');
         print('<td>'.$bday->getDaysToGo().'</td>');
-        print('<td>'.$bday->getAge().'</td></tr>');
+        print('<td>'.$bday->getAge().'</td></tr>'.PHP_EOL);
     }
     print('</table>'.PHP_EOL);
 }
