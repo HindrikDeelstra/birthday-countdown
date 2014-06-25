@@ -41,4 +41,23 @@ if($showlater) {
     print( (current($list) ? '<div class="birthday">Over '.key($list).' dagen jarig: '.current($list).'</div>'.PHP_EOL : '' ) );
 }
 
+// Dump all birthday data on request
+if(isset($_GET['list'])) {
+    $dump = array();
+    print('<table width="450"><tr><th align="left">Naam</th>');
+    print('<th align="left">Geb.datum</th>');
+    print('<th align="left">Verjaardag</th>');
+    print('<th align="left">Dagen</th>');
+    print('<th align="left">Leeftijd</th></tr>'.PHP_EOL);
+    foreach($people as $name=>$date) {
+        $bday = new Birthday($date);
+        print('<tr><td>'.$name.'</td>');
+        print('<td>'.$date.'</td>');
+        print('<td>'.$bday->getNextDate().'</td>');
+        print('<td>'.$bday->getDaysToGo().'</td>');
+        print('<td>'.$bday->getAge().'</td></tr>');
+    }
+    print('</table>'.PHP_EOL);
+}
+
 ?>
