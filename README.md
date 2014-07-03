@@ -1,0 +1,3 @@
+Simple script to display upcoming birthdays
+
+See comments in birthday.php, most stuff should be pretty self-explanatory...
