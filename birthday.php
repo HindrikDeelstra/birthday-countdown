@@ -8,8 +8,8 @@ require_once('class.birthday.php');
 
 // Get birthdays from file.
 // Data-output from 'medewerkers.php' is expected as an array named $people,
-// containing First Name as keys, and their birthdate as the values:
-// $people = array('FirstName1' => 'birthdate1', 'FirstName2' => 'birthdate2', .. , 'FirstNameN' => 'birthdateN');
+// containing Names as keys, and their birthdate as their values:
+// $people = array('Name1' => 'birthdate1', 'Name2' => 'birthdate2', .. , 'NameN' => 'birthdateN');
 include_once('medewerkers.php');
 
 // Dump all birthday data on request
