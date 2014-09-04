@@ -22,10 +22,10 @@ TD,TH   { border: 1px solid #C0C0C0; padding: 6px; text-align: left; }
     <thead>
         <tr>
             <td>Naam</td>
-            <td>Geboortedatum</td>
-            <td>Wanneer jarig?</td>
-            <td>Over hoeveel dagen?</td>
-            <td>Hoe oud dan?</td>
+            <td>Geboren op</td>
+            <td>Wordt op</td>
+            <td>(Over .. dagen)</td>
+            <td>.. jaar!</td>
         </tr>
     </thead>
 <?php
