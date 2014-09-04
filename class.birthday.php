@@ -21,7 +21,7 @@ class Birthday {
     }
 
     public function getNextDate() {
-        return $this->nextdate->format('d-m-Y');
+        return $this->nextdate->format('Y-m-d');
     }
 
     public function getAge() {
