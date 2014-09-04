@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
-<title>Hindrik's verjaardagenpagina</title>
+<title>Verjaardagenpagina</title>
 <script type="text/javascript" src="js/sortabletable.js"></script>
 <link type="text/css" rel="StyleSheet" href="css/sortabletable.css" />
 <style type="text/css">
