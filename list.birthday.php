@@ -7,7 +7,7 @@
 <style type="text/css">
 h3      { color: red; }
 TABLE   { border-collapse: collapse; border: 1px solid #C0C0C0; }
-TD,TH   { border: 1px solid #C0C0C0; padding: 6px; text-align: left; }
+TD,TH   { border: 1px solid #C0C0C0; padding: 6px; text-align: right; }
 </style>
 </head>
 <body>
@@ -22,9 +22,9 @@ TD,TH   { border: 1px solid #C0C0C0; padding: 6px; text-align: left; }
     <thead>
         <tr>
             <td>Naam</td>
-            <td>Geboren op</td>
-            <td>Wordt op</td>
-            <td>(Over .. dagen)</td>
+            <td>geboren op</td>
+            <td>wordt op</td>
+            <td>over .. dagen</td>
             <td>.. jaar!</td>
         </tr>
     </thead>
