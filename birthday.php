@@ -33,7 +33,6 @@ if(isset($_GET['list'])) {
     $showlater = true;
 
     // If there are any birthdays today or tomorrow, show them, but not any later birthdays
-    print('<div class="birthday">');
     if(key($list) == 0) {
         print('<div class="flags"></div>'.PHP_EOL); // Show a decorative ribbon of flags
     }
