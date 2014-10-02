@@ -33,22 +33,27 @@ if(isset($_GET['list'])) {
     $showlater = true;
 
     // If there are any birthdays today or tomorrow, show them, but not any later birthdays
+    print('<div class="birthday">');
     if(key($list) == 0) {
         print('<div class="flags"></div>'.PHP_EOL); // Show a decorative ribbon of flags
-        print('<div class="birthday">Vandaag jarig: '.current($list).'</div>'.PHP_EOL);
+    }
+    print('<div class="birthday">');
+    if(key($list) == 0) {
+        print('Vandaag jarig: '.current($list));
         next($list);
         $showlater = false;
     }
     if(key($list) == 1) {
-        print('<div class="birthday">Morgen jarig: '.current($list).'</div>'.PHP_EOL);
+        print('Morgen jarig: '.current($list));
         next($list);
         $showlater = false;
     }
 
     // If there are no birthdays today or tomorrow, show just the first one in the list
     if($showlater) {
-        print( (current($list) ? '<div class="birthday">Over '.key($list).' dagen jarig: '.current($list).'</div>'.PHP_EOL : '' ) );
+        print( (current($list) ? 'Over '.key($list).' dagen jarig: '.current($list) : '' ) );
     }
+    print('</div>'.PHP_EOL);
 }
 
 ?>
