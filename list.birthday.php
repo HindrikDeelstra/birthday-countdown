@@ -29,13 +29,13 @@ TD,TH   { border: 1px solid #C0C0C0; padding: 6px; text-align: right; }
         </tr>
     </thead>
 <?php
-    foreach($people as $name=>$date) {
-        $bday = new Birthday($date);
+    foreach($people as $name=>$data) {
+        #$bday = new Birthday($date);
         print('<tr><td>'.$name.'</td>');
-        print('<td>'.$date.'</td>');
-        print('<td>'.$bday->getNextDate().'</td>');
-        print('<td>'.$bday->getDaysToGo().'</td>');
-        print('<td>'.$bday->getAge().'</td></tr>'.PHP_EOL);
+        print('<td>'.$data['geboortedatum'].'</td>');
+        print('<td>'.$data['verjaardag'].'</td>');
+        print('<td>'.$data['dagentegaan'].'</td>');
+        print('<td>'.$data['leeftijd'].'</td></tr>'.PHP_EOL);
     }
 
 ?>

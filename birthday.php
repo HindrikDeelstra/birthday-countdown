@@ -4,7 +4,7 @@
 ini_set('date.timezone', 'Europe/Amsterdam');
 
 // Include the class
-require_once('class.birthday.php');
+#require_once('class.birthday.php');
 
 // Get birthdays from file.
 // Data-output from 'medewerkers.php' is expected as an array named $people,
@@ -21,9 +21,9 @@ if(isset($_GET['list'])) {
     $list = array();
 
     // Fill the list with data
-    foreach($people as $name=>$date) {
-        $bday = new Birthday($date);
-        @$list[$bday->getDaysToGo()] .= $name.' ('.$bday->getAge().') ';
+    foreach($people as $name=>$data) {
+        #$bday = new Birthday($date);
+        @$list[$data['dagentegaan']] .= $name.' ('.$data['leeftijd'].') ';
     }
 
     // Sort the list by key = number of DaysToGo
